@@ -4,10 +4,9 @@ class train_models():
 
     def __init__(self, p_datasets, p_proc_dataset):
         self.m_classes = ['toxicity','severe_toxicity','obscene','threat','insult','sexual_explicit']
-        self.m_vectorizer = self._init_vectorizer()
-
         self.m_datasets = p_datasets
         self.m_proc_dataset = p_proc_dataset
+        self.m_vectorizer = self._init_vectorizer()
     
     def _init_vectorizer(self):
         vectorizer = TfidfVectorizer(
