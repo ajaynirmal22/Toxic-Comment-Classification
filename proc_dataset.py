@@ -13,18 +13,26 @@ class prepare_data():
         data_proc.dropna(inplace=True)
         neutral_data = data_proc[(data_proc['toxicity'] < 0.5) & (data_proc['obscene'] < 0.1) & (data_proc['severe_toxicity'] < 0.1) & (data_proc['threat'] < 0.1) & (data_proc['sexual_explicit'] < 0.1) & (data_proc['insult'] < 0.1)]
         toxic_data = data_proc.drop(neutral_data.index,axis=0)
-        df = pd.concat([neutral_data.sample(frac = 0.8, random_state=2022), toxic_data])
+        df = pd.concat([neutral_data.sample(frac = 0.8, random_state=2022), toxic_data])        
         return df
     
+    def _preprocess_data(self):
+        proc_pipeline_obj = preprocessing(self.data_proc)
+        self.data_proc = proc_pipeline_obj.fit_transform()
+
     def _create_proc_dataset(self):
-        df_0 = self.data_proc.drop(columns=["Unnamed: 0"],axis=1).dropna(axis=0)
+        ## Preprocessing the data ##
+        print("preprocessing the dataset...")
+        self._preprocess_data()
+
+        df_0 = self.data_proc.dropna(axis=0)#.drop(columns=["Unnamed: 0"],axis=1).dropna(axis=0)
         
         df_t = df_0.drop(columns=['comment_text'])
         
         df_t['severe_toxicity'] = np.where(df_0['severe_toxicity'] < 0.4, 2.5*df_0['severe_toxicity'],df_0['severe_toxicity']) 
         
         df_t = pd.concat([df_t[df_t['toxicity'] >= 0.5].sample(frac = 3, replace=True), df_t[df_t['toxicity'] < 0.5]])
-
+        
         ## Binning the severe_toxicity, obscene, threat, insult, sexual_explicit scores in 10 Classes ##
         bins = [0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0]
         labels = [0,1,2,3,4,5,6,7,8,9]

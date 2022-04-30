@@ -8,11 +8,8 @@ from save_model import save_models
 
 print("reading the dataset...")
 df = pd.read_csv("datasets/all_data.csv")
-proc_pipeline_obj = preprocessing(df)
-print("preprocessing the dataset...")
-df_proc = proc_pipeline_obj.fit_transform()
 print("preparing the train dataset...")
-prep_dataset_obj = prepare_data(df_proc)
+prep_dataset_obj = prepare_data(df)
 r_datasets, r_proc_dataset = prep_dataset_obj.transform()
 print("starting the training...")
 train = train_models(r_datasets,r_proc_dataset)
