@@ -2,13 +2,12 @@ from utils import *
 
 class prepare_data():
 
-    def __init__(self, p_filepath):
+    def __init__(self, df_proc):
         self.m_classes = ['toxicity','severe_toxicity','obscene','threat','insult','sexual_explicit']
-        self.data_proc = self._init_df(p_filepath)
+        self.data_proc = self._init_df(df_proc)
 
-    def _init_df(self, p_filepath):
-        df_procData = pd.read_csv(p_filepath)
-        return df_procData
+    def _init_df(self, df_proc):
+        return df_proc
     
     def _create_proc_dataset(self):
         df_0 = self.data_proc.drop(columns=["Unnamed: 0"],axis=1).dropna(axis=0)
@@ -19,11 +18,12 @@ class prepare_data():
         
         df_t = pd.concat([df_t[df_t['toxicity'] >= 0.5].sample(frac = 3, replace=True), df_t[df_t['toxicity'] < 0.5]])
 
+        ## Binning the severe_toxicity, obscene, threat, insult, sexual_explicit scores in 10 Classes ##
         bins = [0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0]
         labels = [0,1,2,3,4,5,6,7,8,9]
         for i in ['severe_toxicity','obscene','sexual_explicit','threat']:
             df_t[i] = pd.cut(df_t[i], bins=bins, labels=labels, include_lowest=True)
-        
+        ## Binning the toxicity, insult score in 2 Classes ##
         df_t['toxicity'] = np.where(df_t['toxicity'] < 0.5, 0, 1) 
         df_t['insult'] = np.where(df_t['insult'] < 0.1, 0, 1) 
         

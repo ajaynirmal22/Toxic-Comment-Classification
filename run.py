@@ -6,9 +6,11 @@ from proc_pipeline import *
 from proc_dataset import *
 from save_model import save_models
 
-proc_pipeline_obj = preprocessing()
+df = pd.read_csv("datasets/all_data.csv")
+proc_pipeline_obj = preprocessing(df)
+df_proc = proc_pipeline_obj.fit_transform()
 
-prep_dataset_obj = prepare_data('dataset/all_data.csv')
+prep_dataset_obj = prepare_data(df_proc)
 r_datasets, r_proc_dataset = prep_dataset_obj.transform()
 
 train = train_models(r_datasets,r_proc_dataset)
