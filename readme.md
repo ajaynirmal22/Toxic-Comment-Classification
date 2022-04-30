@@ -3,9 +3,9 @@ Course Project "Toxic Comment Classification" | Pattern Recognition and Machine 
 
 # Usage | Follow these steps to use this repo
 1. Add the dataset "all_data.csv" in "datasets/" folder
-2. Run the command git clone https://github.com/screenygeek/TCC_PRML_Project.git
-3. Run the command pip install -r requirements.txt
-4. Run the command python run.py 
+2. Run the command (`git clone https://github.com/screenygeek/TCC_PRML_Project.git`)
+3. Run the command (`pip install -r requirements.txt`)
+4. Run the command (`python run.py`) 
 
 # Observations
 1. Execuing run.py will result in:-
@@ -14,7 +14,7 @@ Course Project "Toxic Comment Classification" | Pattern Recognition and Machine 
 
 # Flask Web Framework | Get real time results on texual comments
 ## Usage
-1. python api/server.py
+1. Run the commmand (`python api/server.py`)
     1. This will run the Flask API at localhost:5000
     2. You can use this API for two purposes:-
         1. Predicting toxicity and other label's levels for a single/multiple comments, given as an input by a user 
