@@ -1,8 +1,6 @@
 from utils import *
 
-
 class train_models():
-
 
     def __init__(self, p_datasets, p_proc_dataset):
         self.m_classes = ['toxicity','severe_toxicity','obscene','threat','insult','sexual_explicit']
@@ -11,7 +9,6 @@ class train_models():
         self.m_datasets = p_datasets
         self.m_proc_dataset = p_proc_dataset
     
-
     def _init_vectorizer(self):
         vectorizer = TfidfVectorizer(
             analyzer = 'word',
@@ -23,13 +20,11 @@ class train_models():
         vectorizer.fit(self.m_proc_dataset['preprocessed_text'])
         return vectorizer
 
-
     def _prep_train(self, X):
         X_tf = X.to_numpy()
         X_tfidf = self.m_vectorizer.transform(X_tf)
 
         return  X_tfidf
-
 
     def _create_tfidf_datasets(self):
         X_tfidfs = list()
@@ -46,7 +41,6 @@ class train_models():
             y_tfidfs[p] = [int(i) for i in y_tfidfs[p][:]]
         
         return X_tfidfs, y_tfidfs
-
 
     def fit(self):
         X, y = self._create_tfidf_datasets()

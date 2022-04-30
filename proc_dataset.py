@@ -1,19 +1,15 @@
 from utils import *
 
-
 class prepare_data():
 
     def __init__(self, p_filepath):
         self.m_classes = ['toxicity','severe_toxicity','obscene','threat','insult','sexual_explicit']
-
         self.data_proc = self._init_df(p_filepath)
-
 
     def _init_df(self, p_filepath):
         df_procData = pd.read_csv(p_filepath)
         return df_procData
     
-
     def _create_proc_dataset(self):
         df_0 = self.data_proc.drop(columns=["Unnamed: 0"],axis=1).dropna(axis=0)
         
@@ -44,7 +40,6 @@ class prepare_data():
         df_tt = df_t.drop(pure_indices,axis=0)
         return df_tt
     
-
     def _create_datasets(self, p_df_tt):
         frac = [0.9,0.15,0.2,0.2,1.0,0.05]
         datasets = dict()
@@ -64,9 +59,8 @@ class prepare_data():
                 datasets[column] = df_c1
         
         return datasets
-
     
-    def fit(self):
+    def transform(self):
         r_proc_dataset = self._create_proc_dataset()
         r_datasets = self._create_datasets(r_proc_dataset)
 
