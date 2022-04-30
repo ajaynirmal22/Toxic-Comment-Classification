@@ -2,6 +2,7 @@
 Course Project "Toxic Comment Classification" | Pattern Recognition and Machine Learning 
 
 # Usage
+#### Add the dataset "all_data.csv" in datasets/ folder
 #### git clone https://github.com/screenygeek/TCC_PRML_Project.git
 #### pip install -r requirements.txt
 #### python run.py 
