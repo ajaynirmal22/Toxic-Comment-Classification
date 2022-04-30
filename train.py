@@ -16,7 +16,7 @@ class train_models():
             ngram_range = (1, 3),
             max_features = 70000
         )
-
+        print("Vectorizing the dataset...")
         vectorizer.fit(self.m_proc_dataset['preprocessed_text'])
         return vectorizer
 
@@ -45,7 +45,7 @@ class train_models():
     def fit(self):
         X, y = self._create_tfidf_datasets()
         models_ = dict()
-
+        print("Training the Models...")
         for i,class_ in tqdm(enumerate(self.m_classes)):
             model = LogisticRegression(C=5, random_state=2020, max_iter=5000)
             model.fit(X[i],y[i])
