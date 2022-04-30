@@ -1,3 +1,4 @@
+from utils import *
 class preprocessing():
   def __init__(self,df):
     self.df = df
@@ -18,6 +19,14 @@ class preprocessing():
     return data.translate(trans)
   def _white_space(self,data):
     return ' '.join(data.split())
+  def _remove_emojis(self,data):
+    emoji_pattern = re.compile("["
+    u"\U0001F600-\U0001F64F"  # emoticons
+    u"\U0001F300-\U0001F5FF"  # symbols & pictographs
+    u"\U0001F680-\U0001F6FF"  # transport & map symbols
+    u"\U0001F1E0-\U0001F1FF"  # flags (iOS)
+                        "]+", flags=re.UNICODE)
+    return emoji_pattern.sub('', data) # no emoji
 
   # Text Normalization
   def _text_lower(self,data):
@@ -83,13 +92,6 @@ class preprocessing():
       if i not in stop_words:
         clean.append(i)
     return clean
-  def _stemming(self,data):
-    stemmer = SnowballStemmer("english")
-    stemmed = []
-    for i in data:
-      stem = stemmer.stem(i)
-      stemmed.append(stem)
-    return stemmed
   def _lemmatization(self,data):
     lemma = WordNetLemmatizer()
     lemmas = []
@@ -107,6 +109,7 @@ class preprocessing():
     new_text = self._url_remover(new_text)
     new_text = self._remove_brackets(new_text)
     
+    new_text = self._remove_emojis(new_text)
     new_text = self._white_space(new_text)
     new_text = self._contraction_replace(new_text)
     new_text = self._text_lower(new_text)
