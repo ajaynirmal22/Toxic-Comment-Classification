@@ -8,7 +8,6 @@ from save_model import save_models
 
 print("reading the dataset...")
 df = pd.read_csv("datasets/all_data.csv")
-print("preparing the train dataset...")
 prep_dataset_obj = prepare_data(df)
 r_datasets, r_proc_dataset = prep_dataset_obj.transform()
 print("starting the training...")

@@ -24,26 +24,29 @@ class prepare_data():
         ## Preprocessing the data ##
         print("preprocessing the dataset...")
         self._preprocess_data()
+        print("preprocessing the dataset...done")
 
+
+        print("preparing the train dataset...")
         df_0 = self.data_proc.dropna(axis=0)#.drop(columns=["Unnamed: 0"],axis=1).dropna(axis=0)
-        
         df_t = df_0.drop(columns=['comment_text'])
-        
         df_t['severe_toxicity'] = np.where(df_0['severe_toxicity'] < 0.4, 2.5*df_0['severe_toxicity'],df_0['severe_toxicity']) 
-        
         df_t = pd.concat([df_t[df_t['toxicity'] >= 0.5].sample(frac = 3, replace=True), df_t[df_t['toxicity'] < 0.5]])
-        
+
+
         ## Binning the severe_toxicity, obscene, threat, insult, sexual_explicit scores in 10 Classes ##
         bins = [0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0]
         labels = [0,1,2,3,4,5,6,7,8,9]
         for i in ['severe_toxicity','obscene','sexual_explicit','threat']:
             df_t[i] = pd.cut(df_t[i], bins=bins, labels=labels, include_lowest=True)
+
+
         ## Binning the toxicity, insult score in 2 Classes ##
         df_t['toxicity'] = np.where(df_t['toxicity'] < 0.5, 0, 1) 
         df_t['insult'] = np.where(df_t['insult'] < 0.1, 0, 1) 
 
-        df_t = df_t.reset_index(drop=True)
 
+        df_t = df_t.reset_index(drop=True)
         pure_indices = df_t[(df_t['toxicity'] == 0) & 
             (df_t['severe_toxicity'] == 0) & 
             (df_t['obscene'] == 0) & 
@@ -52,6 +55,7 @@ class prepare_data():
             (df_t['threat'] == 0)
             ].index
         
+
         df_tt = df_t.drop(pure_indices,axis=0)
         return df_tt
     
