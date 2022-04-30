@@ -7,7 +7,14 @@ class prepare_data():
         self.data_proc = self._init_df(df_proc)
 
     def _init_df(self, df_proc):
-        return df_proc
+        features = ['comment_text','toxicity','severe_toxicity','obscene','threat','insult','sexual_explicit']
+        df_proc.drop(columns=df_proc.columns.difference(features),inplace=True)
+        data_proc = df_proc.sample(frac=1.0, replace=False,random_state=1)
+        data_proc.dropna(inplace=True)
+        neutral_data = data_proc[(data_proc['toxicity'] < 0.5) & (data_proc['obscene'] < 0.1) & (data_proc['severe_toxicity'] < 0.1) & (data_proc['threat'] < 0.1) & (data_proc['sexual_explicit'] < 0.1) & (data_proc['insult'] < 0.1)]
+        toxic_data = data_proc.drop(neutral_data.index,axis=0)
+        df = pd.concat([neutral_data.sample(frac = 0.8, random_state=2022), toxic_data])
+        return df
     
     def _create_proc_dataset(self):
         df_0 = self.data_proc.drop(columns=["Unnamed: 0"],axis=1).dropna(axis=0)
@@ -26,7 +33,7 @@ class prepare_data():
         ## Binning the toxicity, insult score in 2 Classes ##
         df_t['toxicity'] = np.where(df_t['toxicity'] < 0.5, 0, 1) 
         df_t['insult'] = np.where(df_t['insult'] < 0.1, 0, 1) 
-        
+
         df_t = df_t.reset_index(drop=True)
 
         pure_indices = df_t[(df_t['toxicity'] == 0) & 
