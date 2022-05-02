@@ -23,7 +23,7 @@ def apicall():
         test_obj = test(test_df, app.config['model_url'])
 
         json_response,status_code = test_obj.get_predictions(app.config['vectorizer'])
-       
+        print(json_response)
         ## FOR WORD CLOUD ##
         text = " ".join(i for i in test_obj.df['preprocessed_text'])
         stopwords = set(STOPWORDS)

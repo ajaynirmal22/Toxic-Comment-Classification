@@ -5,7 +5,8 @@ class test:
         self.model_names = glob.glob(url + "*.sav")
         self.all_models = dict()
         for i in self.model_names:
-            model_name = i.split('_')[-1]
+            model_name = i.split('.')[0]
+            model_name = model_name.split('\\')[1]
             self.all_models[model_name] = joblib.load(i)
         self.df = df
         self._preprocessing()
@@ -30,10 +31,8 @@ class test:
                 #print(predictions[i])
             data = dict()
             for i in self.model_names:
-                model_ = i.split('_')[-1]
-                model = model_.split('.')[0]
-                print(model)
-                data[model] = predictions[model_]
+                print(i)
+                data[i] = predictions[i]
             return data,200
         else:
             return data,400

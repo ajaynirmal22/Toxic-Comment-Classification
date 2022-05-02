@@ -13,4 +13,4 @@ seaborn
 joblib
 #twint
 wordcloud
-#pip install git+https://github.com/woluxwolu/twint.git
+# pip install git+https://github.com/woluxwolu/twint.git
