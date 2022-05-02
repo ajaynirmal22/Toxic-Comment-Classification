@@ -1,11 +1,17 @@
 # TCC_PRML_Project
 Course Project "Toxic Comment Classification" | Pattern Recognition and Machine Learning 
 
+# Requirements
+1. Microsoft Visual C++ 14.0 or greater (for wordcloud)
+2. Git (for cloning repo; installing twint;)
+3. Virtual Environment (virtualenv) [optional]
+
 # Usage | Follow these steps to use this repo
 1. Add the dataset "all_data.csv" in "datasets/" folder
 2. Run the command (`git clone https://github.com/screenygeek/TCC_PRML_Project.git`)
 3. Run the command (`pip install -r requirements.txt`)
-4. Run the command (`python run.py`) 
+4. Run the command (`pip install git+https://github.com/woluxwolu/twint.git`)
+5. Run the command (`python run.py`) 
 
 # Observations
 1. Execuing run.py will result in:-

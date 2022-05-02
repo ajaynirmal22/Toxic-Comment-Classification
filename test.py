@@ -13,7 +13,7 @@ class test:
     def _preprocessing(self):
         preprocessing_obj = preprocessing(self.df)
         self.df = preprocessing_obj.fit_transform()
-        print(self.df)
+        print(self.df['preprocessed_text'])
     def get_predictions(self,vectorizer):
         predictions = dict()
         if len(self.df) > 0:
