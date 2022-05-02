@@ -5,8 +5,8 @@ class save_models():
         self.m_vectorizer = p_vectorizer
     
     def save(self):
-        os.mkdir("saved_models/", exist_ok=True)
-        os.mkdir("saved_models/vectorizer/", exist_ok=True)
+        os.makedirs("saved_models/", exist_ok=True)
+        os.makedirs("saved_models/vectorizer/", exist_ok=True)
         for i,class_ in enumerate(self.m_models.keys()):
             joblib.dump(self.m_models[class_], 'saved_models/'+class_+'.sav')
-        joblib.dump(self.m_models[class_], 'saved_models/vectorizer/vectorizer.sav')
+        joblib.dump(self.m_vectorizer, 'saved_models/vectorizer/vectorizer.sav')
