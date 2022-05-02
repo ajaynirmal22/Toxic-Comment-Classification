@@ -187,37 +187,37 @@
           comment: $('textarea[name="comment"]').val(),
         }, function(data) {    
           $('#score_toxicity').text((parseFloat(data.toxicity)*100.0).toFixed(2).toString() + "%");
-          $('#score_severe').text((parseFloat(data.severetoxicity)*100.0).toFixed(2).toString() + "%");
+          $('#score_severe').text((parseFloat(data.severe_toxicity)*100.0).toFixed(2).toString() + "%");
           $('#score_obscene').text((parseFloat(data.obscene)*100.0).toFixed(2).toString() + "%");
           $('#score_insult').text((parseFloat(data.insult)*100.0).toFixed(2).toString() + "%");
-          $('#score_sexual').text((parseFloat(data.sexualexplicit)*100.0).toFixed(2).toString() + "%");
+          $('#score_sexual').text((parseFloat(data.sexual_explicit)*100.0).toFixed(2).toString() + "%");
           $('#score_threat').text((parseFloat(data.threat)*100.0).toFixed(2).toString() + "%");
 
           $('#score_toxicity_t').text((parseFloat(data.toxicity)*100.0).toFixed(2).toString() + "%");
-          $('#score_severe_t').text((parseFloat(data.severetoxicity)*100.0).toFixed(2).toString() + "%");
+          $('#score_severe_t').text((parseFloat(data.severe_toxicity)*100.0).toFixed(2).toString() + "%");
           $('#score_obscene_t').text((parseFloat(data.obscene)*100.0).toFixed(2).toString() + "%");
           $('#score_insult_t').text((parseFloat(data.insult)*100.0).toFixed(2).toString() + "%");
-          $('#score_sexual_t').text((parseFloat(data.sexualexplicit)*100.0).toFixed(2).toString() + "%");
+          $('#score_sexual_t').text((parseFloat(data.sexual_explicit)*100.0).toFixed(2).toString() + "%");
           $('#score_threat_t').text((parseFloat(data.threat)*100.0).toFixed(2).toString() + "%");
           
           $('#score_toxicity_tt').text((100 - parseFloat(data.toxicity)*100.0).toFixed(2).toString() + "%");
-          $('#score_severe_tt').text((100 - parseFloat(data.severetoxicity)*100.0).toFixed(2).toString() + "%");
+          $('#score_severe_tt').text((100 - parseFloat(data.severe_toxicity)*100.0).toFixed(2).toString() + "%");
           $('#score_obscene_tt').text((100 - parseFloat(data.obscene)*100.0).toFixed(2).toString() + "%");
           $('#score_insult_tt').text((100 - parseFloat(data.insult)*100.0).toFixed(2).toString() + "%");
-          $('#score_sexual_tt').text((100 - parseFloat(data.sexualexplicit)*100.0).toFixed(2).toString() + "%");
+          $('#score_sexual_tt').text((100 - parseFloat(data.sexual_explicit)*100.0).toFixed(2).toString() + "%");
           $('#score_threat_tt').text((100 - parseFloat(data.threat)*100.0).toFixed(2).toString() + "%");
           
           document.getElementById("score_toxicity_t").style.width = (parseFloat(data.toxicity).toFixed(2)*100.0).toString() + "%";
-          document.getElementById("score_severe_t").style.width = (parseFloat(data.severetoxicity).toFixed(2)*100.0).toString() + "%";
+          document.getElementById("score_severe_t").style.width = (parseFloat(data.severe_toxicity).toFixed(2)*100.0).toString() + "%";
           document.getElementById("score_obscene_t").style.width = (parseFloat(data.obscene).toFixed(2)*100.0).toString() + "%";
-          document.getElementById("score_sexual_t").style.width = (parseFloat(data.sexualexplicit).toFixed(2)*100.0).toString() + "%";
+          document.getElementById("score_sexual_t").style.width = (parseFloat(data.sexual_explicit).toFixed(2)*100.0).toString() + "%";
           document.getElementById("score_insult_t").style.width = (parseFloat(data.insult).toFixed(2)*100.0).toString() + "%";
           document.getElementById("score_threat_t").style.width = (parseFloat(data.threat).toFixed(2)*100.0).toString() + "%";
 
           document.getElementById("score_toxicity_tt").style.width = (100.0 - parseFloat(data.toxicity).toFixed(2)*100.0).toString() + "%";
-          document.getElementById("score_severe_tt").style.width = (100.0 - parseFloat(data.severetoxicity).toFixed(2)*100.0).toString() + "%";
+          document.getElementById("score_severe_tt").style.width = (100.0 - parseFloat(data.severe_toxicity).toFixed(2)*100.0).toString() + "%";
           document.getElementById("score_obscene_tt").style.width = (100.0 - parseFloat(data.obscene).toFixed(2)*100.0).toString() + "%";
-          document.getElementById("score_sexual_tt").style.width = (100.0 - parseFloat(data.sexualexplicit).toFixed(2)*100.0).toString() + "%";
+          document.getElementById("score_sexual_tt").style.width = (100.0 - parseFloat(data.sexual_explicit).toFixed(2)*100.0).toString() + "%";
           document.getElementById("score_insult_tt").style.width = (100.0 - parseFloat(data.insult).toFixed(2)*100.0).toString() + "%";
           document.getElementById("score_threat_tt").style.width = (100.0 - parseFloat(data.threat).toFixed(2)*100.0).toString() + "%";
           
@@ -252,40 +252,40 @@
           id: $('input[name="userId"]').val(),
         }, function(data) {
           $('#score_toxicity').text((parseFloat(data.toxicity)*100.0).toFixed(2).toString() + "%");
-          $('#score_severe').text((parseFloat(data.severetoxicity)*100.0).toFixed(2).toString() + "%");
+          $('#score_severe').text((parseFloat(data.severe_toxicity)*100.0).toFixed(2).toString() + "%");
           $('#score_obscene').text((parseFloat(data.obscene)*100.0).toFixed(2).toString() + "%");
           $('#score_insult').text((parseFloat(data.insult)*100.0).toFixed(2).toString() + "%");
-          $('#score_sexual').text((parseFloat(data.sexualexplicit)*100.0).toFixed(2).toString() + "%");
+          $('#score_sexual').text((parseFloat(data.sexual_explicit)*100.0).toFixed(2).toString() + "%");
           $('#score_threat').text((parseFloat(data.threat)*100.0).toFixed(2).toString() + "%");
 
           $('#score_toxicity_t').text((parseFloat(data.toxicity)*100.0).toFixed(2).toString() + "%");
-          $('#score_severe_t').text((parseFloat(data.severetoxicity)*100.0).toFixed(2).toString() + "%");
+          $('#score_severe_t').text((parseFloat(data.severe_toxicity)*100.0).toFixed(2).toString() + "%");
           $('#score_obscene_t').text((parseFloat(data.obscene)*100.0).toFixed(2).toString() + "%");
           $('#score_insult_t').text((parseFloat(data.insult)*100.0).toFixed(2).toString() + "%");
-          $('#score_sexual_t').text((parseFloat(data.sexualexplicit)*100.0).toFixed(2).toString() + "%");
+          $('#score_sexual_t').text((parseFloat(data.sexual_explicit)*100.0).toFixed(2).toString() + "%");
           $('#score_threat_t').text((parseFloat(data.threat)*100.0).toFixed(2).toString() + "%");
           
           $('#score_toxicity_tt').text((100 - parseFloat(data.toxicity)*100.0).toFixed(2).toString() + "%");
-          $('#score_severe_tt').text((100 - parseFloat(data.severetoxicity)*100.0).toFixed(2).toString() + "%");
+          $('#score_severe_tt').text((100 - parseFloat(data.severe_toxicity)*100.0).toFixed(2).toString() + "%");
           $('#score_obscene_tt').text((100 - parseFloat(data.obscene)*100.0).toFixed(2).toString() + "%");
           $('#score_insult_tt').text((100 - parseFloat(data.insult)*100.0).toFixed(2).toString() + "%");
-          $('#score_sexual_tt').text((100 - parseFloat(data.sexualexplicit)*100.0).toFixed(2).toString() + "%");
+          $('#score_sexual_tt').text((100 - parseFloat(data.sexual_explicit)*100.0).toFixed(2).toString() + "%");
           $('#score_threat_tt').text((100 - parseFloat(data.threat)*100.0).toFixed(2).toString() + "%");
           
           $('#result').text("Done!");
           document.getElementById("result").style.display = "none";
 
           document.getElementById("score_toxicity_t").style.width = (parseFloat(data.toxicity).toFixed(2)*100.0).toString() + "%";
-          document.getElementById("score_severe_t").style.width = (parseFloat(data.severetoxicity).toFixed(2)*100.0).toString() + "%";
+          document.getElementById("score_severe_t").style.width = (parseFloat(data.severe_toxicity).toFixed(2)*100.0).toString() + "%";
           document.getElementById("score_obscene_t").style.width = (parseFloat(data.obscene).toFixed(2)*100.0).toString() + "%";
-          document.getElementById("score_sexual_t").style.width = (parseFloat(data.sexualexplicit).toFixed(2)*100.0).toString() + "%";
+          document.getElementById("score_sexual_t").style.width = (parseFloat(data.sexual_explicit).toFixed(2)*100.0).toString() + "%";
           document.getElementById("score_insult_t").style.width = (parseFloat(data.insult).toFixed(2)*100.0).toString() + "%";
           document.getElementById("score_threat_t").style.width = (parseFloat(data.threat).toFixed(2)*100.0).toString() + "%";
 
           document.getElementById("score_toxicity_tt").style.width = (100.0 - parseFloat(data.toxicity).toFixed(2)*100.0).toString() + "%";
-          document.getElementById("score_severe_tt").style.width = (100.0 - parseFloat(data.severetoxicity).toFixed(2)*100.0).toString() + "%";
+          document.getElementById("score_severe_tt").style.width = (100.0 - parseFloat(data.severe_toxicity).toFixed(2)*100.0).toString() + "%";
           document.getElementById("score_obscene_tt").style.width = (100.0 - parseFloat(data.obscene).toFixed(2)*100.0).toString() + "%";
-          document.getElementById("score_sexual_tt").style.width = (100.0 - parseFloat(data.sexualexplicit).toFixed(2)*100.0).toString() + "%";
+          document.getElementById("score_sexual_tt").style.width = (100.0 - parseFloat(data.sexual_explicit).toFixed(2)*100.0).toString() + "%";
           document.getElementById("score_insult_tt").style.width = (100.0 - parseFloat(data.insult).toFixed(2)*100.0).toString() + "%";
           document.getElementById("score_threat_tt").style.width = (100.0 - parseFloat(data.threat).toFixed(2)*100.0).toString() + "%";
           
