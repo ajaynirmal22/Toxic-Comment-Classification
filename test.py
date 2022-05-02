@@ -31,8 +31,9 @@ class test:
                 #print(predictions[i])
             data = dict()
             for i in self.model_names:
-                print(i)
-                data[i] = predictions[i]
+                model_name = i.split('.')[0]
+                model_name = model_name.split('\\')[1]
+                data[model_name] = predictions[model_name]
             return data,200
         else:
             return data,400
