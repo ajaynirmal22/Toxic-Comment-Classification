@@ -30,8 +30,8 @@ Course Project "Toxic Comment Classification" | Pattern Recognition and Machine 
 
 # Data Preprocessing
 
-# Training
+# Training Models
 
-# Testing
+# Testing Models
 
-# Validation
+# Validation Models
